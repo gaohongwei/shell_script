@@ -1,8 +1,8 @@
-
 git init
 git add .
 git commit -m "add root routes"
 git remote -v
+gem install heroku
 heroku git:remote -a iask
 heroku keys:add
 git push heroku master --force
