@@ -8,7 +8,10 @@ apt-get -y install git
 gem install heroku
 rvm install ruby -v 2.1.1
 gem install --no-rdoc --no-ri rails -v 4.0.3
-apt-get install -y postgresql postgresql-contrib libpq-dev
+apt-get -y install -y postgresql postgresql-contrib libpq-dev
+
+
+apt-get install mysql-server
 
 postgres
 sudo su postgres -c  "createuser root --pwprompt"  
