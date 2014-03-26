@@ -1,0 +1,17 @@
+<%= debug header %>
+<%= debug columns %>
+<%= debug captions %>
+<%= debug actions %>
+<div class="breadcrumb">
+	<%== page_header(header) %>
+	<% columns.each_with_index do |col,index| %>
+	   <div class="row">
+	    <div class="span1">
+	      <strong><%= tt(captions[index]) %></strong>
+	    </div>
+	    <div class="span8">
+	      <%=  get_attr(obj,col) %>
+	    </div>
+	  </div>
+	<% end %>
+</div>

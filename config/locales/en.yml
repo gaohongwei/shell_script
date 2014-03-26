@@ -1,0 +1,70 @@
+# Sample localization file for English. 
+# Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "尾页 &raquo;"
+      previous: "&lsaquo; 上页"
+      next: "下页 &rsaquo;"
+      truncate: "..."
+  hello: "Hello world"
+  app_name: "中医智能系统"
+  name: "名称"
+  search: "查询"
+  placeholder: "输入查询"
+  list: "列表"
+  index: "列表"
+  empty: "无数据"  
+  actions: "操作"
+  areas: "Ch_Areas"
+  new: "新建"
+  show: "显示"
+  edit: "修改" 
+  dft: "" 
+  delete: "删除" 
+  sure: "确定"        
+  submit: "提 交"  
+  
+  diagnostic: "诊断"
+  knowledge_db: "知识库"
+  base_data: "基本数据"
+  patient: "病人"
+  new_patient: "新病人"
+  old_patient: "老病人"
+  new_case: "新病例"          
+  old_case: "老病例"
+  disease: "病"
+  symptom: "症状"
+
+
+  area: "身体区位"
+  part: "身体部位"  
+  feel: "感觉"
+  level: "程度"
+    
+    
+  quit: "Quit"
+  join: "Join"
+  joined: "Member"
+  joining: "Pending"
+  Business: " 市场"
+  Clothes: "服装"  
+  Study: "出国留学"
+  House: "房地产"
+  Law: "法律"
+  IT: "计算机技术"
+  Learn: "学习"
+  Private: "私人空间"
+  Signin: "登录"
+  Signup: "登记"
+  Communication: "通讯录"
+  Home: "首页"
+  
+  XZYZ: "新洲一中"
+  Wuda: "武汉大学"
+  AllGroup: "所有用户群"
+  AllUser: "所有用户"
+  NewGroup: "创建用户群"
