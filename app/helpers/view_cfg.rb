@@ -29,8 +29,13 @@ module ApplicationHelper
 		diseases:
 		{
 			acts:[
+				# format action:scope:scope_label
+				# if scope_label can be skipped
+				# act,scope,label=act.split(':')
+				# label=label.nil?? tts("#{act} #{scope}"):tt(label)	
+				# Need to define a customized view			
 				'show:dft','show:symptom',
-				'edit:dft','edit:symptom',
+				'edit:dft','edit:select_symptom:select_symptom','edit:type_symptom:type_symptom',
 				'index','new'],
 			index:{
 				dft:{				
@@ -43,10 +48,14 @@ module ApplicationHelper
 					cols:["name"],
 					caps:["name"]				
 				},
-				symptom:{
+				select_symptom:{
 					cols:["symptoms:c"],
 					caps:["symptom"]				
-				}
+				},
+				type_symptom:{
+					cols:["tokens"],
+					caps:["symptom"]				
+				}				
 			}						
 		},	# controller
 		patients:

@@ -1,0 +1,9 @@
+
+Individual file
+<%= semantic_bootstrap_nested_form_for @obj do |f| %>
+  <%= f.inputs do %>
+    <%= f_input(f,'symptoms:c','symptoms',{:collection=>Symptom.by_part(2)}) %>
+  <% end %>
+
+  <%= button_submit(f) %>
+<% end %>

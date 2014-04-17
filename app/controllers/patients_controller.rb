@@ -1,15 +1,10 @@
-class PatientsController < ApplicationController
-  SEARCH_COL = Patient.column_names[1]
-    
+class PatientsController < ApplicationController    
   def index
-    condition = "#{SEARCH_COL} like ?"
-    @sort_direction = sort_direction
-    @sort_column = sort_column(SEARCH_COL)
-    order_by=@sort_column + " " + sort_direction
-        
-    @objs = Patient.where(condition, "%#{params[:search]}%")
-      .page(params[:page]).order(order_by)   
-
+    @columns  =["name", "sex", "year", "jiguang", "user_id"] 
+    @column='name'  #search column    
+    @search = Patient.search(params[:q])  
+    @objs = @search.result.page(params[:page])     
+  
     respond_to do |format|
       format.html # index.html.erb
     end

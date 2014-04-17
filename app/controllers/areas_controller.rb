@@ -1,15 +1,10 @@
-class AreasController < ApplicationController
-  SEARCH_COL = Area.column_names[1]
-    
+class AreasController < ApplicationController    
   def index
-    condition = "#{SEARCH_COL} like ?"
-    @sort_direction = sort_direction
-    @sort_column = sort_column(SEARCH_COL)
-    order_by=@sort_column + " " + sort_direction
-        
-    @objs = Area.where(condition, "%#{params[:search]}%")
-      .page(params[:page]).order(order_by)   
-
+    @columns  =["name"] 
+    @column='name'  #search column    
+    @search = Area.search(params[:q])  
+    @objs = @search.result.page(params[:page])     
+  
     respond_to do |format|
       format.html # index.html.erb
     end

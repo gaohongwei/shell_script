@@ -12,6 +12,7 @@ en:
       truncate: "..."
   hello: "Hello world"
   app_name: "中医智能系统"
+  app_name: "Ruby on Rails"  
   name: "名称"
   search: "查询"
   placeholder: "输入查询"
@@ -23,9 +24,11 @@ en:
   new: "新建"
   show: "显示"
   edit: "修改" 
+  select: "选择"  
   dft: "" 
   delete: "删除" 
-  sure: "确定"        
+  sure: "确定" 
+  then: "然后"           
   submit: "提 交"  
   
   diagnostic: "诊断"
@@ -38,12 +41,15 @@ en:
   old_case: "老病例"
   disease: "病"
   symptom: "症状"
-
+  select_symptom: "选择症状"  
+  type_symptom: "输入症状"  
 
   area: "身体区位"
   part: "身体部位"  
   feel: "感觉"
   level: "程度"
+
+  error: "错误"  
     
     
   quit: "Quit"

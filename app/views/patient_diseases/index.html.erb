@@ -1,8 +1,7 @@
-<% columns  =["patient_id", "disease_id"] %>
 <%== page_header() %>
-<%= search_area %>
+<%= search_area(@column) %>
 <%= page_link(@objs) %>
 <div class="breadcrumb">
-	<%= index_me @objs,@sort_column, @sort_direction %>
+	<%= index_me @objs %>
 </div >
 <%== link2actions() %>

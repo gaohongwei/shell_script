@@ -17,12 +17,12 @@ module ApplicationHelper
 		# Delete current one
 
 		action ||=get_action	
-		opt=get_scope()		
-		unless opt.nil?
-			action="#{action}:#{opt}"
-		end
+		opt=get_scope()
+		opt ||='dft'	
+		action="#{action}:#{opt}"	
 		#acts.delete(action)	
-		acts.delete(action)
+		acts.delete_if {|w|w=~/^#{action}/}		
+		#acts.delete(action)
 		acts
 	end		
 	def get_columns(opt=nil)

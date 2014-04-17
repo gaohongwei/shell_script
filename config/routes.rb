@@ -1,5 +1,4 @@
 TCM::Application.routes.draw do
-  root 'patients#index'
   resources :patient_diseases
 
   resources :patient_symptoms

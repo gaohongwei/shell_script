@@ -1,0 +1,7 @@
+
+<%= semantic_bootstrap_nested_form_for @obj do |f| %>
+  <%= f.inputs do %>
+ 		<%= f.text_field :tokens, "data-pre" => @obj.symptoms.to_json %>		      
+  <% end %>
+  <%= button_submit(f) %>  
+<% end %>

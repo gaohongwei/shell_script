@@ -6,37 +6,47 @@ require 'view_get'
 
 module ApplicationHelper 
 ############## Public methods only ##############   
-  def index_me(objs,sort_column,sort_direction, columns=nil, captions=nil, header=nil)
+  def index_me(objs,columns=nil, captions=nil, header=nil)
     columns ||=get_columns()
     captions||=get_captions()
     actions ||=get_actions() 
     header  ||=get_page_header()         
     render 'shared/index', :objs=>objs, 
-    :sort_column=>sort_column, :sort_direction=>sort_direction,
     :columns=>columns, :header=>header,:captions=>captions,:actions=>actions
   end
   def show_me(obj,columns=nil,captions=nil, header=nil)
-    myview=get_my_template('selfed')
+    do_me(obj,columns,captions, header)
+  end
+  def form_me(obj,columns=nil,captions=nil, header=nil) 
+    do_me(obj,columns,captions, header)
+  end    
+  def do_me(obj,columns=nil,captions=nil, header=nil)
+    columns ||=get_columns()
+    captions||=get_captions()
+    actions ||=get_actions() 
+    action    =get_action()    
+    header  ||=get_page_header(obj,:dft) 
+    partial=''
+    case action
+    when 'edit','new'
+      partial='shared/form'
+    when 'index'
+      partial='shared/index'
+    when 'show'
+      partial='shared/show' 
+    else
+      partial='shared/index'
+    end
+    myview=get_my_template()
     params[:myview]=myview   
     unless myview.nil? 
-      render :template =>myview
-    else
-    columns ||=get_columns()
-    captions||=get_captions()
-    actions ||=get_actions() 
-    header  ||=get_page_header(obj,:dft)  
-    render 'shared/show', :obj=>obj,:columns=>columns,
-    :captions=>captions,:header=>header,:actions=>actions
+      render :template =>myview,:obj=>obj,:columns=>columns    
+    else 
+      render partial, :obj=>obj,:columns=>columns,
+      :captions=>captions,:header=>header,:actions=>actions
     end
   end  
-  def form_me(obj,columns=nil,captions=nil, header=nil)   
-    columns ||=get_columns()
-    captions||=get_captions()
-    actions ||=get_actions() 
-    header  ||=get_page_header(obj,:dft)           
-    render 'shared/form', :obj=>obj,:columns=>columns,
-    :captions=>captions,:header=>header,:actions=>actions
-  end    
+
   def link2actions(actions=nil,id=nil,controller=nil,data={})
     actions ||=get_actions()
     controller ||=get_controller()
@@ -46,7 +56,7 @@ module ApplicationHelper
   def link2action(act,id=nil,controller=nil,data={})
     isbig=true       
     act,scope,label=act.split(':')
-    label ||=tts("#{act} #{scope}")
+    label=label.nil?? tts("#{act} #{scope}"):tt(label)
     unless scope.nil?
       data.merge!({:scope=>scope})
     end

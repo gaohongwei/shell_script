@@ -1,4 +1,6 @@
-<%= form_tag({action: "index"}, {method: :get, class: 'form-search'}) do %>
-  <%= text_field_tag("search", params[:search], {size: 70, placeholder: placeholder, class: 'input-medium search-query span4'}) %>
+<%= search_form_for @search do |f| %>
+	<%= f.text_field column, 
+		{size: 70, placeholder: placeholder, 
+		class: 'input-medium search-query span4'} %>
   <%= submit_tag(tt('search'), class: 'btn btn-warning') %>
 <% end %>

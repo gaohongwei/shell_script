@@ -2,8 +2,12 @@ module ApplicationHelper
   def menu_bar
     render 'shared/menu'
   end  
-  def search_area
-    render(partial: '/shared/search', locals: {placeholder: tt('placeholder')})
+  def search_area(column=nil)
+  	column ||='name'
+  	column +='_cont'
+  	params[:search]=column  	
+    render 'shared/search', 
+    	:column=>column,:placeholder=>tt('placeholder')
   end  
   def submit_button(f,label=tt('submit'))
     render 'common/submit', :f=>f,:label=>label

@@ -14,8 +14,9 @@ module ApplicationHelper
   def get_page_header(obj=nil,opt=nil)
     resource=get_resource
     action=get_action
+    opt   =get_scope()
     id=get_id()
-    header="#{action} : #{resource}"
+    header="#{action} #{opt} : #{resource}"
     header=tts(header)
 
     dft_columns=get_columns(:dft)
@@ -30,7 +31,7 @@ module ApplicationHelper
     path||= 'selfed'
     ctl=get_controller()
     act=get_action()
-    opt=get_scope()   
+    opt=get_scope() 
     fname="_#{ctl}.#{act}"
     fname="#{fname}.#{opt}" unless opt.nil?
     fname=File.join(path,fname)
@@ -106,25 +107,7 @@ module ApplicationHelper
     klass='btn btn-danger btn-mini'
     f.link_to_remove(label,:class => klass)
   end
-  # returns a link and icon to sort table columns
-  def sort_col(direction, sort_col, cur_col,cur_head=nil)
-    cur_head ||=cur_col
-    cur_head= tt(cur_head)
-    sortable(cur_col,cur_head) +  sort_icon(direction, sort_col, cur_col)
-  end
-  # returns a link to sort table columns 
-  def sortable(column, title = nil)
-    title ||= column.titleize
-    direction = params[:direction] == "asc" ? "desc" : "asc"
-    link_to title, sort: column, direction: direction
-  end
-  
-  def sort_icon(direction, column, table_column)
-    return nil if column != table_column    
-    return content_tag(:i, nil, {class: 'icon-chevron-up', style: 'float: right'}) if direction == 'asc'
-    return content_tag(:i, nil, {class: 'icon-chevron-down', style: 'float: right'}) if direction == 'desc'
-  end
-  
+
   # display a message using the JQuery Toast Message plugin
   # types available: notice, success, warning an error
   def display_toast_message(message, type)
@@ -162,27 +145,5 @@ module ApplicationHelper
     if id.nil?
       obj_name='HasData'
     end
-  end
-
-############## Removed  ############## 
-  def zno_data()
-    "<tr><td colspan='10'>#{tt('empty')}</td></tr>"
-  end
-
-  def ztable_header(direction, sort_col, columns)
-    str='<table class="table table-striped table-bordered table-condensed">'
-    str +='<thead>'
-    str +='<tr>'
-    columns.each do |cur_col|
-      str +='<th>'
-      str +=sort_col(direction, sort_col, cur_col)
-      str +='</th>'     
-    end
-    str +="<th width='140px'><a href='#'>#{tt('actions')}</a></th>"
-    str +='<vtr>'
-    str +='</thead>'
-  end
-  def zindex_header(str,objs)
-    page_header(str)+ search_area + page_link(objs)
-  end  
+  end    
 end

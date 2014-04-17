@@ -47,7 +47,7 @@ private
   end
   def set_objs
     instance_variable_set("@objs", model.all)
-  end
+  end  
   def sort_column(deault_col)
     model.column_names.include?(params[:sort]) ? params[:sort] : deault_col
   end

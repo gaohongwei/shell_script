@@ -4,4 +4,6 @@ class PatientSymptom < ActiveRecord::Base
   scope :by_patient, lambda { |id|
       where(:patient_id=>id)
   }
+
+
 end

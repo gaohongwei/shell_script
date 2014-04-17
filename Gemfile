@@ -9,10 +9,12 @@ gem 'therubyracer'
 #gem 'devise'
 #gem 'cancan'
 #gem 'bootstrap2-rails'
+#gem 'rails3-jquery-autocomplete'
+gem 'ransack'
 gem 'formtastic' 
 gem 'formtastic-bootstrap' # This is must for form edit 
 gem "nested_form"
-
+#gem 'dependent-select', '~> 0.0.2'
 #gem 'responders'
 gem 'kaminari' #gem 'will_paginate'
 #gem 'http_accept_language'

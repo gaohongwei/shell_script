@@ -1,9 +1,7 @@
 <table class="table table-striped table-bordered table-condensed">
 <thead><tr>
 <% columns.each_with_index do |col,index| %>
-  <th>
-  <%= sort_col(sort_direction, sort_column, col,captions[index]) %>
-  </th>     
+  <th><%= sort_link(@search, col.to_sym, tt(captions[index])) %></th>      
 <% end %>
 <th width='140px'><a href='#'><%= tt('actions') %></a></th>
 </tr></thead>

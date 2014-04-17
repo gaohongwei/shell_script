@@ -3,18 +3,13 @@ require_dependency "<%= namespaced_file_path %>/application_controller"
 
 <% end -%>
 <% module_namespacing do -%>
-class <%= controller_class_name %>Controller < ApplicationController
-  SEARCH_COL = <%= class_name %>.column_names[1]
-    
+class <%= controller_class_name %>Controller < ApplicationController    
   def index
-    condition = "#{SEARCH_COL} like ?"
-    @sort_direction = sort_direction
-    @sort_column = sort_column(SEARCH_COL)
-    order_by=@sort_column + " " + sort_direction
-        
-    @objs = <%= class_name %>.where(condition, "%#{params[:search]}%")
-      .page(params[:page]).order(order_by)   
-
+    @columns  =<%= attributes.map{|a|a.name} %> 
+    @column='<%= attributes_names[0] %>'  #search column    
+    @search = <%= class_name %>.search(params[:q])  
+    @objs = @search.result.page(params[:page])     
+  
     respond_to do |format|
       format.html # index.html.erb
     end

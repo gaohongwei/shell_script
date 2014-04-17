@@ -1,0 +1,13 @@
+
+Customized file
+<%= semantic_bootstrap_nested_form_for @obj do |f| %>
+  <%= f.inputs do %>
+    <%= f_input(f,'parts:c','part',{:collection=>Part.all}) %>   	 
+  <% end %>
+<% end %>
+<%= semantic_bootstrap_nested_form_for @obj do |f| %>
+  <%= f.inputs do %>
+    <%= f_input(f,'symptoms:c','symptom') %>    	 
+  <% end %>
+  <%= button_submit(f) %>
+<% end %>

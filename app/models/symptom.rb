@@ -9,4 +9,7 @@ class Symptom < ActiveRecord::Base
   has_many :patient_symptoms
 
   accepts_nested_attributes_for :patients ,:allow_destroy => true
+  scope :by_part, lambda { |id|
+      where(:part_id=>id)
+  }  
 end
