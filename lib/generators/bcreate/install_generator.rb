@@ -4,7 +4,7 @@ module Bcreate
       desc "Update Configuration"
       def install
         #cfg_application
-        #cfg_route
+        cfg_route
         cfg_db
       end
       private
