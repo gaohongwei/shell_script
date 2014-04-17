@@ -12,7 +12,6 @@ en:
       truncate: "..."
   hello: "Hello world"
   app_name: "中医智能系统"
-  app_name: "Ruby on Rails"  
   name: "名称"
   search: "查询"
   placeholder: "输入查询"
