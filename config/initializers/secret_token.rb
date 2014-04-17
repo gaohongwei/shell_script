@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-TCM::Application.config.secret_key_base = '20fad3eb35ee32e62dd087a909cc41519edf71fd5acfb232d4e27a3316af058216045f920d1009f045fe900318b353193ad69fa6f4c1592fb1843a68eb567166'
+TCM::Application.config.secret_key_base = 'f5d00aa9eb137278a3344203935789e3bff85a69e84a39ba5b688df772c5d126e074e13c472fba24cfc29d458e1d83ad4113051b9864d72ffdca280a46167b79'

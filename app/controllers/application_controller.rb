@@ -10,7 +10,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   private
 
     def record_not_found
-      render text:tts('error .'),status: 404
-      #render layout:false,plain: "404 Not Found", status: 404
+      #render :file => '/public/404.html',status: 404
+      render text:tts('error .'),layout:true,status: 404
     end    
 end
