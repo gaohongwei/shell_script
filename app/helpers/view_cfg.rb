@@ -62,8 +62,8 @@ module ApplicationHelper
 		{
 			acts:[
 				'show:dft','show:symptom',
-				'edit:dft','edit:symptom',
-				'index','new'],
+				'edit:dft','edit:select_symptom:select_symptom','edit:type_symptom:type_symptom',
+				'index','new'],				
 			index:{
 				dft:{				
 					cols:["name", "sex", "year", "jiguang"],

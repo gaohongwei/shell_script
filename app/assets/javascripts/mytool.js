@@ -1,13 +1,5 @@
-var ready_symptom_select=function() {
-	$("#select_part input:checkbox").change(function () {
-		val=$(this).val();
-		if ($(this).prop('checked')) {
-			addCheckBox('symptom','/symptoms.js',{'part_id':val});
-     } else {
-			rmCheckbox(val,'part_id'); //remove dom by id #part_val
-     }
-     
-  });
+$(function() {
+
   function genId(id,group){
   	group = group ||'group_id';
   	return [group,id].join('_');
@@ -30,6 +22,7 @@ var ready_symptom_select=function() {
 		formId=dst.closest('form').attr('id'); // edit_symptom_1
 		arr=formId.split('_');
 		objName=arr[1];
+		parentObj=objName;
 		cbId=[objName,model,"ids"].join('_');
 		cbName=objName.concat("[",model,"_ids][]");
 		// Get checkbox id and name, end	
@@ -50,8 +43,4 @@ var ready_symptom_select=function() {
 	  	dst.append(div);	  	
 	  }); // getJSON
 	}			// addSymptom
-};
-
-$(document).ready(ready_symptom_select);
-$(document).on('page:load', ready_symptom_select);
-
+});

@@ -1,0 +1,22 @@
+
+<%= tts('select part , select symptom , then submit') %>
+</br></br>
+
+<%= tts('select part')%>
+	<div id='select_part'>
+	<% Part.all.each do |part| %>
+	<%= check_box_tag 'part_ids[]', part.id, false %><%=part.name%>  
+	<%end%>
+  </div>
+</br>
+
+<%= tts('select symptom')%>
+
+<%= semantic_bootstrap_nested_form_for @obj do |f| %>
+	<div id='select_symptom'>
+	<% @obj.symptoms.each do |symptom| %>
+	<%= check_box_tag 'patient[symptom_ids][]', symptom.id, true %><%=symptom.name%>
+	<% end %>
+  </div>  
+  <%= button_submit(f) %>
+<% end %>

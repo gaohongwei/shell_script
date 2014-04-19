@@ -40,8 +40,8 @@ en:
   old_case: "老病例"
   disease: "病"
   symptom: "症状"
-  select_symptom: "选择症状"  
-  type_symptom: "输入症状"  
+  select_symptom: "按身体部位选择症状"  
+  type_symptom: "智能输入症状"  
 
   area: "身体区位"
   part: "身体部位"  
