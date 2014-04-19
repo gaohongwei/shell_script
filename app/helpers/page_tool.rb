@@ -16,7 +16,12 @@ module ApplicationHelper
     action=get_action
     opt   =get_scope()
     id=get_id()
-    header="#{action} #{opt} : #{resource}"
+    label=get_label(action,opt)
+    if label.nil?
+      header="#{action} #{opt} : #{resource}"
+    else
+      header="#{label} : #{resource}"
+    end
     header=tts(header)
 
     dft_columns=get_columns(:dft)

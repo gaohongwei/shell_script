@@ -1,5 +1,27 @@
 module ApplicationHelper
+	def get_label(action,opt)
+		all_actions=get_all_actions();
+		return nil if all_actions.nil? || all_actions.empty?
+		action="#{action}:#{opt}"	
+		founds=all_actions.select{|x|x=~/^#{action}/}
+		return nil if founds.size<1
+		found=founds[0]
+		x,y,label=found.split(':')
+		label
+	end
 	def get_actions(action=nil,controller=nil,id=nil)
+		acts=get_all_actions(action,controller,id)
+		# Delete current one
+		action ||=get_action	
+		opt=get_scope()
+		opt ||='dft'	
+		action="#{action}:#{opt}"	
+		#acts.delete(action)	
+		acts.delete_if {|w|w=~/^#{action}/}		
+		#acts.delete(action)
+		acts		
+	end
+	def get_all_actions(action=nil,controller=nil,id=nil)
 		controller ||= get_controller	
 		id ||=get_id()
 		cfg=VIEWS[controller.to_sym]
@@ -14,15 +36,6 @@ module ApplicationHelper
 			acts.delete_if {|w|w=~/^edit/}
 			acts.delete_if {|w|w=~/^show/}			
 		end
-		# Delete current one
-
-		action ||=get_action	
-		opt=get_scope()
-		opt ||='dft'	
-		action="#{action}:#{opt}"	
-		#acts.delete(action)	
-		acts.delete_if {|w|w=~/^#{action}/}		
-		#acts.delete(action)
 		acts
 	end		
 	def get_columns(opt=nil)

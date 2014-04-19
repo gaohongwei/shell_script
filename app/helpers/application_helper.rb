@@ -39,11 +39,11 @@ module ApplicationHelper
     end
     myview=get_my_template()
     params[:myview]=myview   
-    unless myview.nil? 
-      render :template =>myview,:obj=>obj,:columns=>columns    
-    else 
+    if myview.nil? 
       render partial, :obj=>obj,:columns=>columns,
-      :captions=>captions,:header=>header,:actions=>actions
+      :captions=>captions,:header=>header,:actions=>actions        
+    else 
+      render :template =>myview,:obj=>obj,:columns=>columns 
     end
   end  
 
