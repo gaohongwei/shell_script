@@ -14,10 +14,13 @@ apt-get -y install git
 gem install heroku
 rvm install ruby -v 2.1.1
 gem install --no-rdoc --no-ri rails -v 4.0.3
+
+# Database
 apt-get -y install -y postgresql postgresql-contrib libpq-dev
 
-
 apt-get install mysql-server
+apt-get install libmysqlclient-dev
+
 # 14.04 LTS not 12.04
 apt-get install libmagick++-dev
 gem install rmagick
