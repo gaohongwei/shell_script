@@ -1,5 +1,11 @@
 sudo passwd root
 apt-get install openssh-server
+
+# enable login as root 
+#otherwise, su after login
+/etc/ssh/sshd_config
+sudo /etc/init.d/ssh restart
+
 sudo apt-get -y install curl
 \curl -L https://get.rvm.io | bash -s stable
 exit and login
@@ -12,6 +18,10 @@ apt-get -y install -y postgresql postgresql-contrib libpq-dev
 
 
 apt-get install mysql-server
+# 14.04 LTS not 12.04
+apt-get install libmagick++-dev
+gem install rmagick
+
 
 postgres
 sudo su postgres -c  "createuser root --pwprompt"  
