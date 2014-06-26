@@ -34,8 +34,8 @@ apt-get install libmagickwand-dev
 23.  cd ..
 24.  mysqld
 25.  (mysqld will remain running, so open a separate console)
-26.  rake db:create
-27.  rake db:migrate
+26.  rake db:create && rake db:migrate or
+27.  rake db:setup
 28.  mysql -uroot five9_development < db/dumps/five9cms_qa.sql
 29.  brew install elasticsearch 
 30.  elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.90.3/config/elasticsearch.yml (it will ask you to install Java, so agree and install it)
@@ -45,6 +45,8 @@ apt-get install libmagickwand-dev
 34.  (guard remains running, so open a new console)
 35.  unzip media_library archive into five9cms/public/media_library/...
 
+     rm javascripts/application.js
+     rm stylesheets/application.css
 
 36.  scripts/rails server
 37.  (ruby server remains running)
