@@ -50,5 +50,6 @@ apt-get install libmagickwand-dev
 
 36.  scripts/rails server
 37.  (ruby server remains running)
-Something like this did the trick for me on MacOS. As you can see (by comparing), there are some differences from what GT provided :(
 
+Select some attributes from data model
+Widget.select("name,id").all
