@@ -17,9 +17,10 @@ Removing user `kwei' from group `rvm' ...
 exit and login
 apt-get -y install  vim
 apt-get -y install git
-gem install heroku
+
 rvm install ruby -v 2.1.1
 gem install --no-rdoc --no-ri rails -v 4.0.3
+gem install heroku
 
 # Database
 apt-get -y install -y postgresql postgresql-contrib libpq-dev
