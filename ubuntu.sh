@@ -25,7 +25,11 @@ gem install heroku
 # Database
 apt-get -y install -y postgresql postgresql-contrib libpq-dev
 
-apt-get install mysql-server
+export DEBIAN_FRONTEND=noninteractive
+apt-get -q -y install mysql-server
+#sudo -E apt-get -q -y install mysql-server
+mysqladmin -u root password dbroot
+
 apt-get install libmysqlclient-dev
 
 # 14.04 LTS not 12.04
