@@ -23,7 +23,6 @@ gem install --no-rdoc --no-ri rails -v 4.0.3
 gem install heroku
 
 # Database
-apt-get -y install -y postgresql postgresql-contrib libpq-dev
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get -q -y install mysql-server
@@ -38,6 +37,8 @@ gem install rmagick
 
 
 postgres
+apt-get -y install -y postgresql postgresql-contrib libpq-dev
+
 sudo su postgres -c  "createuser root --pwprompt"  
 sudo -u postgres dropdb   $dbname
 sudo -u postgres createdb $dbname
