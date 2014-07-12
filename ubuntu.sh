@@ -13,6 +13,7 @@ Adding user `kwei' to group `rvm' ...
 Adding user kwei to group rvm
 sudo deluser  kwei rvm
 Removing user `kwei' from group `rvm' ...
+
 exit and login
 apt-get -y install  vim
 apt-get -y install git
